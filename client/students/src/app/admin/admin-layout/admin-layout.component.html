@@ -1,0 +1,197 @@
+<ng-template appPopup></ng-template>
+
+<mat-toolbar  class="mat-elevation-z5" color="primary" style="z-index: 100!important;">
+  <button mat-icon-button  (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
+  </button>
+  <div class="inner">
+    <div class="user-name">
+      Привет, {{getName()}}
+    </div>
+    <div class="img" (click)="showPopup()">
+      <img *ngIf="isShow" [src]="imagePreview" alt="">
+    </div>
+  </div>
+</mat-toolbar>
+
+  <mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8 roll">
+
+    <mat-divider></mat-divider>
+
+    <button
+      *ngIf="isShowRout(['USER', 'ADMIN'])"
+      mat-button class="menu-button"
+      routerLinkActive="active-link"
+      [routerLink]="['list-students']">
+      <mat-icon><span class="material-icons-outlined">
+        list
+      </span></mat-icon>
+      <span>Список учеников</span>
+    </button>
+
+    <button
+      *ngIf="isShowRout(['SUPER_ADMIN'])"
+      mat-button class="menu-button"
+      routerLinkActive="active-link"
+      [routerLink]="['list-students-sa']">
+      <mat-icon><span class="material-icons-outlined">
+        list
+      </span></mat-icon>
+      <span>Список учеников</span>
+    </button>
+
+    <button
+      *ngIf="isShowRout(['SUPER_ADMIN'])"
+      mat-button class="menu-button"
+      routerLinkActive="active-link"
+      [routerLink]="['list-schools']">
+      <mat-icon><span class="material-icons-outlined">
+        view_list
+      </span></mat-icon>
+      <span>Список школ</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLinkActive="active-link" [routerLink]="['list-teachers']">
+      <mat-icon><span class="material-icons-outlined">
+     manage_accounts
+     </span></mat-icon>
+      <span>Список преподавателей</span>
+    </button>
+    <button mat-button class="menu-button" routerLinkActive="active-link" [routerLink]="['list-events']">
+      <mat-icon><span class="material-icons-outlined">
+     event
+     </span></mat-icon>
+      <span>Список мероприятий</span>
+    </button>
+    <mat-divider></mat-divider>
+
+    <button *ngIf="isShowRout(['SUPER_ADMIN'])"
+            mat-button
+            class="menu-button"
+            routerLinkActive="active-link"
+            [routerLink]="['add-add-school']">
+      <mat-icon>home_work</mat-icon>
+      <span>Добавить школу</span>
+    </button>
+    <button *ngIf="isShowRout(['SUPER_ADMIN', 'ADMIN'])"
+            mat-button class="menu-button"
+            routerLinkActive="active-link"
+            [routerLink]="['add-teacher']">
+      <mat-icon>people_alt</mat-icon>
+      <span>Добавить преподавателя</span>
+    </button>
+    <button
+      *ngIf="isShowRout(['USER'])"
+      mat-button
+      class="menu-button"
+      routerLinkActive="active-link"
+      [routerLink]="['add-student']">
+      <mat-icon>add_task</mat-icon>
+      <span>Добавить ученика</span>
+    </button>
+    <button
+      *ngIf="isShowRout(['ADMIN'])"
+      mat-button
+      class="menu-button"
+      routerLinkActive="active-link"
+      [routerLink]="['add-student-admin']">
+      <mat-icon>add_task</mat-icon>
+      <span>Добавить ученика</span>
+    </button>
+    <button
+      *ngIf="isShowRout(['SUPER_ADMIN'])"
+      mat-button
+      class="menu-button"
+      routerLinkActive="active-link"
+      [routerLink]="['add-student-super-admin']">
+      <mat-icon>add_task</mat-icon>
+      <span>Добавить ученика</span>
+    </button>
+    <button mat-button class="menu-button" routerLinkActive="active-link" [routerLink]="['add-schedule']">
+      <mat-icon>edit_calendar</mat-icon>
+      <span>Добавить расписание</span>
+    </button>
+    <button
+      *ngIf="isShowRout(['ADMIN'])"
+      mat-button class="menu-button" routerLinkActive="active-link" [routerLink]="['add-event']">
+      <mat-icon>bookmark_add</mat-icon>
+      <span>Добавить мероприятие</span>
+    </button>
+    <button
+      *ngIf="isShowRout(['ADMIN'])"
+      mat-button
+      class="menu-button"
+      routerLinkActive="active-link"
+      [routerLink]="['add-cabinets']">
+      <mat-icon>meeting_room</mat-icon>
+      <span>Добавить кабинеты</span>
+    </button>
+
+
+    <mat-divider *ngIf="isShowRout(['ADMIN'])"></mat-divider>
+
+   <button
+     *ngIf="isShowRout(['ADMIN'])"
+     mat-button class="menu-button"
+     routerLinkActive="active-link"
+     [routerLink]="['bell-times']">
+      <mat-icon><span class="material-icons-outlined">
+      doorbell
+     </span></mat-icon>
+      <span>Расписание звонков</span>
+    </button>
+
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button" routerLinkActive="active-link" [routerLink]="['electronic-journal']">
+      <mat-icon><span class="material-icons-outlined">
+    article
+     </span></mat-icon>
+      <span>Журнал</span>
+    </button>
+
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button" routerLinkActive="active-link" [routerLink]="['statistics']">
+      <mat-icon><span class="material-icons-outlined">
+    analytics
+     </span></mat-icon>
+      <span>Статистика</span>
+    </button>
+
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button" routerLinkActive="active-link" [routerLink]="['chat']">
+      <mat-icon><span class="material-icons-outlined">
+   speaker_notes
+     </span></mat-icon>
+      <span>Чат</span>
+    </button>
+
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button" (click)="logout()" [routerLink]="['/']" >
+      <mat-icon><span class="material-icons-outlined">
+     logout
+     </span></mat-icon>
+      <span>Выйти</span>
+    </button>
+
+    <div class="roll-up"  (click)="sidenav.toggle()">
+      <button mat-button class="menu-button">
+        <mat-icon><span class="material-icons-outlined">
+     west
+     </span></mat-icon>
+        <span class="title">Свернуть</span>
+      </button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

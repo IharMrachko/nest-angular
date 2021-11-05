@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-title>Регистрация</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="registerForm">
+
+      <mat-form-field>
+        <input type="text" matInput placeholder="Фамилия" formControlName="lastName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" matInput placeholder="Имя" formControlName="firstName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" matInput placeholder="Отчество" formControlName="thridName">
+      </mat-form-field>
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+
+
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+
+
+      <div class="button">
+        <button type="submit" mat-raised-button color="primary" (click)="saveForm()">Зарегистрироваться</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+

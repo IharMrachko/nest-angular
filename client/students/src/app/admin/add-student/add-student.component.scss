@@ -1,0 +1,38 @@
+.wrapper {
+  padding: 10px 20px;
+}
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+   flex: 1;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+mat-radio-button {
+  margin-right: 12px;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.schools {
+  width: 50%;
+}
+
+.error {
+  position: absolute;
+  font-size: 11px;
+  color: red;
+  top: 30px;
+}

@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+  --header-bg1: #FFFFFF;
+  --hover-bg1: #FCF2E6;
+  --button-bg1: #FFFFFF;
+  --button-bg2: #4E7BD8;
+  --button-bg4: #FFAD4D;
+  --button-c1: #4E7BD8;
+  --button-c2: #FFFFFF;
+  --button-disabled-bg3: #BFB2A8;
+  --button-disabled-c3: rgba(0, 0, 0, .6);
+  --light-text-c1: #FFFFFF;
+  --drop-down-bg1: #FFFFFF;
+  --page-spinner-bg1: rgba(51, 51, 51, 0.8);
+  --login-header-c1: #6D6E70;
+  --login-header-bg1: rgba(255, 255, 255, 0.7);
+  --form-item-margin: 12px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::ng-deep ngx-material-timepicker-content{
+  --body-background-color: #fff;
+  --primary-font-family: 'Roboto',sans-serif;
+  --button-color: #c6ff00 !important;
+  --dial-active-color: #fff;
+  --dial-inactive-color: rgba(255, 255, 255, .5);
+  --dial-background-color: #c6ff00 !important;
+  --dial-editable-active-color: #c6ff00 !important;
+  --dial-editable-background-color: #fff;
+  --clock-face-time-active-color: #fff;
+  --clock-face-time-inactive-color: #6c6c6c;
+  --clock-face-inner-time-inactive-color: #929292;
+  --clock-face-time-disabled-color: #c5c5c5;
+  --clock-face-background-color: #f0f0f0;
+  --clock-hand-color: #c6ff00 !important;
+}
+
+.customer-timepicker {
+  .timepicker__header{
+    --dial-background-color: #001e40 !important;
+  }
+
+  .clock-face__clock-hand {
+    background-color: #001e40 !important;
+
+    &::after {
+      background-color: #001e40 !important;
+    }
+
+    &::before {
+      background-color: #001e40 !important;
+    }
+  }
+  .clock-face__number {
+    > span.active {
+      background-color: #001e40 !important;
+    }
+  }
+  button {
+    //color: #001e40 !important;
+  }
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+}
+
+mat-card-header .mat-card-header-text {
+  margin: 0;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: rgba(0,0,0, 0);
+}
+/* You can add global styles to this file, and also import other style files */

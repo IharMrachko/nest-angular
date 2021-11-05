@@ -1,0 +1,69 @@
+.wrapper {
+  padding: 10px 20px;
+}
+
+.search-school {
+  position: absolute;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  background-color: white;
+  right: 1px;
+  top: 42px;
+  min-height: 200px;
+  border-radius: 5px;
+
+  & .inner {
+    padding: 10px 13px 10px 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-height: inherit;
+    justify-content: space-between;
+
+    & button mat-icon {
+      padding-left: 10px;
+    }
+  }
+
+  &  mat-form-field {
+    width: 100%;
+
+  }
+}
+
+input {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.icon-search {
+  position: absolute;
+  top: 7px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.error {
+  position: absolute;
+  font-size: 11px;
+  color: red;
+  top: 30px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & .checkbox-title {
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(63, 81, 181);;
+  }
+
+  mat-checkbox {
+    margin-right: 3px;
+  }
+}
+

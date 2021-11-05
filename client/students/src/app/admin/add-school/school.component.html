@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-title>Создать школу</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="formSchool">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Название" formControlName="name">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Номер школы" formControlName="number">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Населенный пункт" formControlName="locality">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Адрес" formControlName="address">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="email" formControlName="email">
+      </mat-form-field>
+      <mat-card-title *ngIf="isShowBranch">Адрес филиала</mat-card-title>
+          <mat-list  formArrayName="branch" *ngFor="let value of branch.controls; let idx = index">
+            <div [formGroupName]="idx">
+              <mat-form-field>
+                <input type="text" matInput placeholder="Адрес"  formControlName="address">
+              </mat-form-field>
+              <div class="btn-wrap" (click)="removeBranch(idx)">
+                <mat-icon matTooltip="Удалить филиал">delete</mat-icon>
+              </div>
+            </div>
+
+      </mat-list>
+      <div class="buttons">
+        <button type="submit" mat-raised-button color="primary" [disabled]="formSchool.invalid" (click)="createSchool()">Сохранить</button>
+        <button  mat-raised-button color="link"   (click)="addBranch()">Добавить филиал</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

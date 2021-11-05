@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>Войти</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Password" formControlName="password">
+      </mat-form-field>
+      <div class="button">
+        <button type="submit" mat-raised-button color="primary" (click)="login()">Войти</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+

@@ -1,0 +1,21 @@
+<ng-template appPopup></ng-template>
+
+<div class="wrapper" *ngIf="isShow">
+  <app-header-with-search>
+    <input type="text"
+           (keyup)="applyFilter($event)"
+           placeholder="введите данные"
+           #input
+           autofocus>
+    <div class="icon-search" (click)="showPopup()">
+      <mat-icon>sort</mat-icon>
+    </div>
+  </app-header-with-search>
+  <app-students-table
+    [displayedColumns]="displayedColumns"
+    [dataSource]="dataSource">
+  </app-students-table>
+</div>
+
+
+
